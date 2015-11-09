@@ -19,11 +19,9 @@
     switch (type) {
         case MusicTypeXinGeBang:
             params[@"type"]=@1;
-            params[@"size"] = @(page * 10);
             break;
         case MusicTypeReGeBang:
             params[@"type"]=@2;
-            params[@"size"] = @(page * 10);
             break;
         case MusicTypeKTVReGeBang:
             params[@"type"]=@6;
@@ -39,11 +37,9 @@
             break;
         case MusicTypeYaoGunBang:
             params[@"type"]=@11;
-            params[@"size"] = @(page * 10);
             break;
         case MusicTypeJueShi:
             params[@"type"]=@12;
-            params[@"size"] = @(page * 10);
             break;
         case MusicTypeLiuXing:
             params[@"type"]=@16;
@@ -53,22 +49,22 @@
             break;
         case MusicTypeJingDianLaoGeBang:
             params[@"type"]=@22;
-            params[@"size"] = @(page * 10);
+            
             break;
         case MusicTypeQingGeDuiChangBang:
             params[@"type"]=@23;
-            params[@"size"] = @(page * 10);
+            
             break;
         case MusicTypeYingShiJinQuBang:
             params[@"type"]=@24;
-            params[@"size"] = @(page * 10);
             break;
         case MusicTypeWangLuoGeQuBang:
             params[@"type"]=@25;
-            params[@"size"] = @(page * 10);
             break;
             
     }
+    params[@"size"] = @10;
+    params[@"offset"] = @(10*(page-1));
 
     NSString * path = [self percentPathWithPath:kMusicPath params:params];
     return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
